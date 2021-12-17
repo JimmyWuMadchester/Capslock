@@ -1,16 +1,10 @@
 {
-  "title": "Capslock Enhancement",
-  "url": "https://vonng.com/capslock.json",
+  "title": "Capslock Enhancement with Rider",
   "version": "3.0.3",
   "maintainers": [
-    "Vonng"
+    "Darkato"
   ],
-  "author": "Vonng(rh@vonng.com)",
-  "website": "http://capslock.vonng.com",
-  "json_url": "https://vonng.com/capslock.json",
-  "import_url": "karabiner://karabiner/assets/complex_modifications/import?url=https://vonng.com/capslock.json",
-  "gallery_url": "https://ke-complex-modifications.pqrs.org/#emulation-modes",
-  "repo": "https://github.com/Vonng/Capslock",
+  "author": "Darkato(adamoweb@gmail.com)",
   "rules": [
     {
       "description": "CapsLock to Hyper",
@@ -2572,8 +2566,7 @@
             {
               "key_code": "down_arrow",
               "modifiers": [
-                "left_option",
-                "left_shift"
+                "left_option"
               ]
             }
           ]
@@ -2597,8 +2590,7 @@
             {
               "key_code": "up_arrow",
               "modifiers": [
-                "left_option",
-                "left_shift"
+                "left_option"
               ]
             }
           ]
@@ -4819,7 +4811,7 @@
           ]
         },
         {
-          "description": "e = safari",
+          "description": "e = edge",
           "type": "basic",
           "from": {
             "key_code": "e",
@@ -4834,7 +4826,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a Safari"
+              "shell_command": "open -a Edge"
             }
           ]
         },
