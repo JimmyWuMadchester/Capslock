@@ -113,7 +113,35 @@
       ]
     },
     {
-      "description": "Hyper Navigation",
+      "description": "Hyper + 4($) => Language Switch",
+      "manipulators": [
+        {
+          "description": "4 = Language Switch",
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Hyper Navigation (uiop,hjkl,vb)",
       "manipulators": [
         {
           "description": " v = option + left",
@@ -427,6 +455,30 @@
           ]
         },
         {
+          "description": "option + j = option + down",
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "left_shift",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ]
+        },
+        {
           "description": " k = up",
           "type": "basic",
           "from": {
@@ -491,6 +543,30 @@
               "modifiers": [
                 "left_command",
                 "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "option + k = option + up",
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "left_shift",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_up",
+              "modifiers": [
+                "left_option"
               ]
             }
           ]
@@ -831,7 +907,7 @@
       ]
     },
     {
-      "description": "Hyper Deletion",
+      "description": "Hyper Deletion (nm,.)",
       "manipulators": [
         {
           "description": "command + n = delete a word ahead",
@@ -1012,7 +1088,7 @@
       ]
     },
     {
-      "description": "Hyper Window",
+      "description": "Hyper Window ([tab], qw, as)",
       "manipulators": [
         {
           "description": "tab = alter app",
@@ -1154,17 +1230,37 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "description": "Hyper Application",
-      "manipulators": [
+        },
         {
-          "description": "a = Notion",
+          "description": "command + s = alter tab sheet rev",
           "type": "basic",
           "from": {
-            "key_code": "a",
+            "key_code": "s",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "left_control",
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "s = alter tab sheet",
+          "type": "basic",
+          "from": {
+            "key_code": "s",
             "modifiers": {
               "mandatory": [
                 "right_command",
@@ -1176,10 +1272,18 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Notion'"
+              "key_code": "tab",
+              "modifiers": [
+                "left_control"
+              ]
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "description": "Hyper Application (erty,asfg)",
+      "manipulators": [
         {
           "description": "e = Microsoft Edge",
           "type": "basic",
@@ -1345,6 +1449,47 @@
           ]
         },
         {
+          "description": "a = Notion",
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Notion'"
+            }
+          ]
+        },
+        {
+          "description": "command + s = System Preferences",
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'System Preferences'"
+            }
+          ]
+        },
+        {
           "description": "command + f = Dash",
           "type": "basic",
           "from": {
@@ -1384,11 +1529,32 @@
               "shell_command": "open -a finder"
             }
           ]
+        },
+        {
+          "description": "command + g = Chrome",
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Google Chrome'"
+            }
+          ]
         }
       ]
     },
     {
-      "description": "Hyper Terminal",
+      "description": "Hyper Terminal/IDE (d,zxc)",
       "manipulators": [
         {
           "description": "command + d = Command+F12 (Rider)",
@@ -1574,11 +1740,148 @@
               ]
             }
           ]
+        },
+        {
+          "description": "backslash \\ = command + / (comment)",
+          "type": "basic",
+          "from": {
+            "key_code": "backslash",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "slash",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "slash / = command + / (comment)",
+          "type": "basic",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "slash",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "semicolon = equal_sign",
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "command + semicolon = !",
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "1",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "quote = `",
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde"
+            }
+          ]
+        },
+        {
+          "description": "command + quote = ~",
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
         }
       ]
     },
     {
-      "description": "Hyper Clipboard",
+      "description": "Hyper Clipboard (123)",
       "manipulators": [
         {
           "description": "command + 1 = copy to clip1",
@@ -1738,566 +2041,12 @@
               ]
             }
           ]
-        },
-        {
-          "description": "command + 4 = copy to clip4",
-          "type": "basic",
-          "from": {
-            "key_code": "4",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "c",
-              "modifiers": [
-                "left_command"
-              ]
-            },
-            {
-              "shell_command": "pbpaste > ~/.clip4"
-            }
-          ]
-        },
-        {
-          "description": "4 = paste from clip4",
-          "type": "basic",
-          "from": {
-            "key_code": "4",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "cat ~/.clip4 | pbcopy "
-            },
-            {
-              "key_code": "v",
-              "modifiers": [
-                "left_command"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "command + 5 = copy to clip5",
-          "type": "basic",
-          "from": {
-            "key_code": "5",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "c",
-              "modifiers": [
-                "left_command"
-              ]
-            },
-            {
-              "shell_command": "pbpaste > ~/.clip5"
-            }
-          ]
-        },
-        {
-          "description": "5 = paste from clip5",
-          "type": "basic",
-          "from": {
-            "key_code": "5",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "cat ~/.clip5 | pbcopy "
-            },
-            {
-              "key_code": "v",
-              "modifiers": [
-                "left_command"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "command + 6 = copy to clip6",
-          "type": "basic",
-          "from": {
-            "key_code": "6",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "c",
-              "modifiers": [
-                "left_command"
-              ]
-            },
-            {
-              "shell_command": "pbpaste > ~/.clip6"
-            }
-          ]
-        },
-        {
-          "description": "6 = paste from clip6",
-          "type": "basic",
-          "from": {
-            "key_code": "6",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "cat ~/.clip6 | pbcopy "
-            },
-            {
-              "key_code": "v",
-              "modifiers": [
-                "left_command"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "command + 7 = copy to clip7",
-          "type": "basic",
-          "from": {
-            "key_code": "7",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "c",
-              "modifiers": [
-                "left_command"
-              ]
-            },
-            {
-              "shell_command": "pbpaste > ~/.clip7"
-            }
-          ]
-        },
-        {
-          "description": "7 = paste from clip7",
-          "type": "basic",
-          "from": {
-            "key_code": "7",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "cat ~/.clip7 | pbcopy "
-            },
-            {
-              "key_code": "v",
-              "modifiers": [
-                "left_command"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "command + 8 = copy to clip8",
-          "type": "basic",
-          "from": {
-            "key_code": "8",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "c",
-              "modifiers": [
-                "left_command"
-              ]
-            },
-            {
-              "shell_command": "pbpaste > ~/.clip8"
-            }
-          ]
-        },
-        {
-          "description": "8 = paste from clip8",
-          "type": "basic",
-          "from": {
-            "key_code": "8",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "cat ~/.clip8 | pbcopy "
-            },
-            {
-              "key_code": "v",
-              "modifiers": [
-                "left_command"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "command + 9 = copy to clip9",
-          "type": "basic",
-          "from": {
-            "key_code": "9",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "c",
-              "modifiers": [
-                "left_command"
-              ]
-            },
-            {
-              "shell_command": "pbpaste > ~/.clip9"
-            }
-          ]
-        },
-        {
-          "description": "9 = paste from clip9",
-          "type": "basic",
-          "from": {
-            "key_code": "9",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "cat ~/.clip9 | pbcopy "
-            },
-            {
-              "key_code": "v",
-              "modifiers": [
-                "left_command"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "command + 0 = copy to clip0",
-          "type": "basic",
-          "from": {
-            "key_code": "0",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "c",
-              "modifiers": [
-                "left_command"
-              ]
-            },
-            {
-              "shell_command": "pbpaste > ~/.clip0"
-            }
-          ]
-        },
-        {
-          "description": "0 = paste from clip0",
-          "type": "basic",
-          "from": {
-            "key_code": "0",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "cat ~/.clip0 | pbcopy "
-            },
-            {
-              "key_code": "v",
-              "modifiers": [
-                "left_command"
-              ]
-            }
-          ]
         }
       ]
     },
     {
-      "description": "Hyper Shifter",
+      "description": "SHIFT + ESC = `(~) for ANSI 60",
       "manipulators": [
-        {
-          "description": "open_bracket [ = (",
-          "type": "basic",
-          "from": {
-            "key_code": "open_bracket",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "9",
-              "modifiers": [
-                "left_shift"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "close_bracket ] = )",
-          "type": "basic",
-          "from": {
-            "key_code": "close_bracket",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "0",
-              "modifiers": [
-                "left_shift"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "backslash \\ = command + / (comment)",
-          "type": "basic",
-          "from": {
-            "key_code": "backslash",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "slash",
-              "modifiers": [
-                "left_command"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "slash / = command + / (comment)",
-          "type": "basic",
-          "from": {
-            "key_code": "slash",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "slash",
-              "modifiers": [
-                "left_command"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "semicolon = equal_sign",
-          "type": "basic",
-          "from": {
-            "key_code": "semicolon",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "equal_sign",
-              "modifiers": [
-                "left_shift"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "command + semicolon = !",
-          "type": "basic",
-          "from": {
-            "key_code": "semicolon",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "1",
-              "modifiers": [
-                "left_shift"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "quote = `",
-          "type": "basic",
-          "from": {
-            "key_code": "quote",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "grave_accent_and_tilde"
-            }
-          ]
-        },
-        {
-          "description": "command + quote = ~",
-          "type": "basic",
-          "from": {
-            "key_code": "quote",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "grave_accent_and_tilde",
-              "modifiers": [
-                "left_shift"
-              ]
-            }
-          ]
-        },
         {
           "description": "left_shift + escape = `",
           "type": "basic",

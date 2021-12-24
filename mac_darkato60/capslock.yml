@@ -33,11 +33,21 @@ rules:
         from: { key_code: spacebar, modifiers: { mandatory: [ left_command,  right_command,right_control,right_shift,right_option ] } }
         to: [ { key_code: spacebar , modifiers: [ left_control,left_command ] } ]
 
+  ################################################################
+  #                    Hyper Language Switch                     #
+  ################################################################
+  - description: Hyper + 4($) => Language Switch
+    manipulators:
+
+      - description: '4 = Language Switch'
+        type: basic
+        from: { key_code: '4', modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
+        to: [ { key_code: spacebar , modifiers: [ left_control ] } ]
 
   ################################################################
   #                       Hyper Navigation                       #
   ################################################################
-  - description: Hyper Navigation
+  - description: Hyper Navigation (uiop,hjkl,vb)
     manipulators:
 
       #==========================================================#
@@ -123,6 +133,12 @@ rules:
         from: { key_code: j, modifiers: { mandatory: [ left_shift ,right_command,right_control,right_shift,right_option ] } }
         to: [ { key_code: tab , modifiers: [ left_command ] } ]
 
+      # option: option + cursor down
+      - description: 'option + j = option + down'
+        type: basic
+        from: { key_code: j, modifiers: { mandatory: [ left_shift ,right_command,right_control,right_shift,right_option ] } }
+        to: [ { key_code: down_arrow , modifiers: [ left_option ] } ]
+
 
       #==========================================================#
       # ( k ) + ( ⌘⌥⇧⌃ )  -> ( up )                              #
@@ -145,6 +161,11 @@ rules:
         from: { key_code: k, modifiers: { mandatory: [ left_shift ,right_command,right_control,right_shift,right_option ] } }
         to: [ { key_code: tab , modifiers: [ left_command, left_shift ] } ]
 
+      # option: option + cursor up
+      - description: 'option + k = option + up'
+        type: basic
+        from: { key_code: k, modifiers: { mandatory: [ left_shift ,right_command,right_control,right_shift,right_option ] } }
+        to: [ { key_code: down_up , modifiers: [ left_option ] } ]
 
       #==========================================================#
       # ( l ) + ( ⌘⌥⇧⌃ )  -> ( right )                           #
@@ -257,11 +278,10 @@ rules:
         to: [ { mouse_key: { x: +1600 } } ]
 
 
-
   ################################################################
   #                       Hyper Deletion                         #
   ################################################################
-  - description: Hyper Deletion
+  - description: Hyper Deletion (nm,.)
     manipulators:
 
       # + command = delete line
@@ -310,7 +330,7 @@ rules:
   ################################################################
   #                        Hyper Window                          #
   ################################################################
-  - description: Hyper Window
+  - description: Hyper Window ([tab], qw, as)
     manipulators:
 
       #==========================================================#
@@ -356,20 +376,26 @@ rules:
         from: { key_code: a, modifiers: { mandatory: [ left_command,  right_command,right_control,right_shift,right_option ] } }
         to: [ { key_code: up_arrow , modifiers: [ left_control ] } ]
 
+      #==========================================================#
+      # ( s ) --> switch tab/win                                 #
+      #==========================================================#
+
+      - description: 'command + s = alter tab sheet rev'
+        type: basic
+        from: { key_code: s, modifiers: { mandatory: [ left_command,  right_command,right_control,right_shift,right_option ] } }
+        to: [ { key_code: tab , modifiers: [ left_control,left_shift ] } ]
+
+      - description: 's = alter tab sheet'
+        type: basic
+        from: { key_code: s, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
+        to: [ { key_code: tab , modifiers: [ left_control ] } ]
+
 
   ################################################################
   #                      Hyper Application                       #
   ################################################################
-  - description: Hyper Application
+  - description: Hyper Application (erty,asfg)
     manipulators:
-
-      #==========================================================#
-      # ( a ) --> Notion                                       #
-      #==========================================================#
-      - description: 'a = Notion'
-        type: basic
-        from: { key_code: a, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
-        to: [ { shell_command: open -a 'Notion' } ]
 
       #==========================================================#
       # ( e ) --> Edge / finder                                  #
@@ -424,6 +450,22 @@ rules:
         to: [ { shell_command: open -a amphetamine } ]
 
       #==========================================================#
+      # ( a ) --> Notion                                       #
+      #==========================================================#
+      - description: 'a = Notion'
+        type: basic
+        from: { key_code: a, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
+        to: [ { shell_command: open -a 'Notion' } ]
+
+      #==========================================================#
+      # ( s ) --> System Preferences                                       #
+      #==========================================================#
+      - description: 'command + s = System Preferences'
+        type: basic
+        from: { key_code: s, modifiers: { mandatory: [ left_command, right_command,right_control,right_shift,right_option ] } }
+        to: [ { shell_command: open -a 'System Preferences' } ]
+
+      #==========================================================#
       # ( f ) --> Finder / Dash                                  #
       #==========================================================#
       - description: 'command + f = Dash'
@@ -436,11 +478,19 @@ rules:
         from: { key_code: f, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
         to: [ { shell_command: open -a finder } ]
 
+      #==========================================================#
+      # ( g ) --> chrome                        #
+      #==========================================================#
+      - description: 'command + g = Chrome'
+        type: basic
+        from: { key_code: g, modifiers: { mandatory: [ left_command, right_command,right_control,right_shift,right_option ] } }
+        to: [ { shell_command: open -a 'Google Chrome' } ]
+
 
   ################################################################
   #                    Hyper Terminal/IDE                        #
   ################################################################
-  - description: Hyper Terminal
+  - description: Hyper Terminal/IDE (d,zxc)
     manipulators:
 
       #==========================================================#
@@ -495,11 +545,51 @@ rules:
         from: { key_code: c, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
         to: [ { key_code: c , modifiers: [ left_control ] } ]
 
+      
+      #==========================================================#
+      # slash/backslash to comment
+      #==========================================================#
+      - description: 'backslash \ = command + / (comment)'
+        type: basic
+        from: { key_code: backslash, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
+        to: [ { key_code: slash , modifiers: [ left_command ] } ]
+
+      - description: 'slash / = command + / (comment)'
+        type: basic
+        from: { key_code: slash, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
+        to: [ { key_code: slash , modifiers: [ left_command ] } ]
+
+      #==========================================================#
+      # semicolon  -->  =  (+command) !
+      #==========================================================#
+      - description: 'semicolon = equal_sign'
+        type: basic
+        from: { key_code: semicolon, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
+        to: [ { key_code: equal_sign , modifiers: [ left_shift ] } ]
+      
+      - description: 'command + semicolon = !'
+        type: basic
+        from: { key_code: semicolon, modifiers: { mandatory: [ left_command, right_command,right_control,right_shift,right_option ] } }
+        to: [ { key_code: '1' , modifiers: [ left_shift ] } ]
+
+      #==========================================================#
+      # quote -->  `  (+command) ~"
+      #==========================================================#
+      - description: 'quote = `'
+        type: basic
+        from: { key_code: quote, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
+        to: [ { key_code: grave_accent_and_tilde } ]
+
+      - description: 'command + quote = ~'
+        type: basic
+        from: { key_code: quote, modifiers: { mandatory: [ left_command,right_command,right_control,right_shift,right_option ] } }
+        to: [ { key_code: grave_accent_and_tilde, modifiers: [ left_shift ] } ]
+
 
   ################################################################
   #                        Hyper Clipboard                       #
   ################################################################
-  - description: Hyper Clipboard
+  - description: Hyper Clipboard (123)
     manipulators:
 
       #==========================================================#
@@ -535,144 +625,24 @@ rules:
         from: { key_code: '3', modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
         to: [ { shell_command: 'cat ~/.clip3 | pbcopy ' },{ key_code: v, modifiers: [ left_command ] } ]
 
-      - description: 'command + 4 = copy to clip4'
-        type: basic
-        from: { key_code: '4', modifiers: { mandatory: [ left_command, right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: c, modifiers: [ left_command ] } , { shell_command: 'pbpaste > ~/.clip4' } ]
-
-      - description: '4 = paste from clip4'
-        type: basic
-        from: { key_code: '4', modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
-        to: [ { shell_command: 'cat ~/.clip4 | pbcopy ' },{ key_code: v, modifiers: [ left_command ] } ]
-
-      - description: 'command + 5 = copy to clip5'
-        type: basic
-        from: { key_code: '5', modifiers: { mandatory: [ left_command, right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: c, modifiers: [ left_command ] } , { shell_command: 'pbpaste > ~/.clip5' } ]
-
-      - description: '5 = paste from clip5'
-        type: basic
-        from: { key_code: '5', modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
-        to: [ { shell_command: 'cat ~/.clip5 | pbcopy ' },{ key_code: v, modifiers: [ left_command ] } ]
-
-      - description: 'command + 6 = copy to clip6'
-        type: basic
-        from: { key_code: '6', modifiers: { mandatory: [ left_command, right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: c, modifiers: [ left_command ] } , { shell_command: 'pbpaste > ~/.clip6' } ]
-
-      - description: '6 = paste from clip6'
-        type: basic
-        from: { key_code: '6', modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
-        to: [ { shell_command: 'cat ~/.clip6 | pbcopy ' },{ key_code: v, modifiers: [ left_command ] } ]
-
-      - description: 'command + 7 = copy to clip7'
-        type: basic
-        from: { key_code: '7', modifiers: { mandatory: [ left_command, right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: c, modifiers: [ left_command ] } , { shell_command: 'pbpaste > ~/.clip7' } ]
-
-      - description: '7 = paste from clip7'
-        type: basic
-        from: { key_code: '7', modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
-        to: [ { shell_command: 'cat ~/.clip7 | pbcopy ' },{ key_code: v, modifiers: [ left_command ] } ]
-
-      - description: 'command + 8 = copy to clip8'
-        type: basic
-        from: { key_code: '8', modifiers: { mandatory: [ left_command, right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: c, modifiers: [ left_command ] } , { shell_command: 'pbpaste > ~/.clip8' } ]
-
-      - description: '8 = paste from clip8'
-        type: basic
-        from: { key_code: '8', modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
-        to: [ { shell_command: 'cat ~/.clip8 | pbcopy ' },{ key_code: v, modifiers: [ left_command ] } ]
-
-      - description: 'command + 9 = copy to clip9'
-        type: basic
-        from: { key_code: '9', modifiers: { mandatory: [ left_command, right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: c, modifiers: [ left_command ] } , { shell_command: 'pbpaste > ~/.clip9' } ]
-
-      - description: '9 = paste from clip9'
-        type: basic
-        from: { key_code: '9', modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
-        to: [ { shell_command: 'cat ~/.clip9 | pbcopy ' },{ key_code: v, modifiers: [ left_command ] } ]
-
-      - description: 'command + 0 = copy to clip0'
-        type: basic
-        from: { key_code: '0', modifiers: { mandatory: [ left_command, right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: c, modifiers: [ left_command ] } , { shell_command: 'pbpaste > ~/.clip0' } ]
-
-      - description: '0 = paste from clip0'
-        type: basic
-        from: { key_code: '0', modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
-        to: [ { shell_command: 'cat ~/.clip0 | pbcopy ' },{ key_code: v, modifiers: [ left_command ] } ]
-
-
-
 
   ################################################################
-  #                        Hyper Shifter+                        #
+  #             SHIFT + ESC = `(~) for ANSI 60                   #
   ################################################################
-  - description: Hyper Shifter
+  - description: SHIFT + ESC = `(~) for ANSI 60
     manipulators:
 
       #==========================================================#
-      # [] -> () command:{}  option:<>
+      # left_shift + escape = `
       #==========================================================#
-
-      - description: 'open_bracket [ = ('
-        type: basic
-        from: { key_code: open_bracket, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: '9' , modifiers: [ left_shift ] } ]
-
-      - description: 'close_bracket ] = )'
-        type: basic
-        from: { key_code: close_bracket, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: '0' , modifiers: [ left_shift ] } ]
-
-      #==========================================================#
-      # slash/backslash to comment
-      #==========================================================#
-      - description: 'backslash \ = command + / (comment)'
-        type: basic
-        from: { key_code: backslash, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: slash , modifiers: [ left_command ] } ]
-
-      - description: 'slash / = command + / (comment)'
-        type: basic
-        from: { key_code: slash, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: slash , modifiers: [ left_command ] } ]
-
-
-      #==========================================================#
-      # semicolon  -->  =  (+command) !
-      #==========================================================#
-      - description: 'semicolon = equal_sign'
-        type: basic
-        from: { key_code: semicolon, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: equal_sign , modifiers: [ left_shift ] } ]
-      
-      - description: 'command + semicolon = !'
-        type: basic
-        from: { key_code: semicolon, modifiers: { mandatory: [ left_command, right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: '1' , modifiers: [ left_shift ] } ]
-
-      #==========================================================#
-      # quote -->  `  (+command) ~"
-      #==========================================================#
-      - description: 'quote = `'
-        type: basic
-        from: { key_code: quote, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: grave_accent_and_tilde } ]
-
-      - description: 'command + quote = ~'
-        type: basic
-        from: { key_code: quote, modifiers: { mandatory: [ left_command,right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: grave_accent_and_tilde, modifiers: [ left_shift ] } ]
-      
       - description: 'left_shift + escape = `'
         type: basic
         from: { key_code: escape, modifiers: { mandatory: [ left_shift ] } }
         to: [ { key_code: grave_accent_and_tilde } ]
 
+      #==========================================================#
+      # right_shift + escape = ~
+      #==========================================================#
       - description: 'right_shift + escape = ~'
         type: basic
         from: { key_code: escape, modifiers: { mandatory: [ right_shift ] } }
