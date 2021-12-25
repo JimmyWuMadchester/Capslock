@@ -47,49 +47,8 @@ rules:
   ################################################################
   #                       Hyper Navigation                       #
   ################################################################
-  - description: Hyper Navigation (uiop,hjkl,vb)
+  - description: Hyper Navigation (uiop,hjkl)
     manipulators:
-
-      #==========================================================#
-      # Cursor move by word                                      #
-      #==========================================================#
-      # normal: cursor move left by word
-      - description: ' v = option + left'
-        conditions: [ {"bundle_identifiers": ["^com.googlecode.iterm2"],"type": "frontmost_application_unless"}]
-        type: basic
-        from: { key_code: v, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: left_arrow , modifiers: [ left_option ] } ]
-
-      - description: ' v = option + b'
-        conditions: [ {"bundle_identifiers": ["^com.googlecode.iterm2"],"type": "frontmost_application_if"}]
-        type: basic
-        from: { key_code: v, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: b , modifiers: [ left_option ] } ]
-
-      # command: selection left by word
-      - description: ' command + v = shift + option + left'
-        type: basic
-        from: { key_code: v, modifiers: { mandatory: [ left_command,right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: left_arrow , modifiers: [ left_shift,left_option ] } ]
-
-      # normal: cursor move right by word
-      - description: ' b = option + right'
-        conditions: [ {"bundle_identifiers": ["^com.googlecode.iterm2"],"type": "frontmost_application_unless"}]
-        type: basic
-        from: { key_code: b, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: right_arrow , modifiers: [ left_option ] } ]
-
-      - description: ' b = option + f'
-        conditions: [ {"bundle_identifiers": ["^com.googlecode.iterm2"],"type": "frontmost_application_if"}]
-        type: basic
-        from: { key_code: b, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: f , modifiers: [ left_option ] } ]
-
-      # command: selection right by word
-      - description: ' command + b = shift + option + right'
-        type: basic
-        from: { key_code: b, modifiers: { mandatory: [ left_command,right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: right_arrow , modifiers: [ left_shift,left_option ] } ]
 
       #==========================================================#
       # ( h ) + ( ⌘⌥⇧⌃ )  -> ( left )                            #
@@ -106,12 +65,6 @@ rules:
         from: { key_code: h, modifiers: { mandatory: [ left_command, right_command,right_control,right_shift,right_option ] } }
         to: [ { key_code: left_arrow , modifiers: [ left_shift ] } ]
 
-      # shift: tab/win management
-      - description: 'shift + h = ctrl + shift + tab (prev tab)'
-        type: basic
-        from: { key_code: h, modifiers: { mandatory: [ left_shift ,right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: tab , modifiers: [ left_control , left_shift ] } ]
-
       #==========================================================#
       # ( j ) + ( ⌘⌥⇧⌃ )  -> ( down )                            #
       #==========================================================#
@@ -126,12 +79,6 @@ rules:
         type: basic
         from: { key_code: j, modifiers: { mandatory: [ left_command, right_command,right_control,right_shift,right_option ] } }
         to: [ { key_code: down_arrow , modifiers: [ left_shift ] } ]
-
-      # shift: tab/win management
-      - description: 'shift + j = command + tab (next application)'
-        type: basic
-        from: { key_code: j, modifiers: { mandatory: [ left_shift ,right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: tab , modifiers: [ left_command ] } ]
 
       # option: option + cursor down
       - description: 'option + j = option + down'
@@ -155,12 +102,6 @@ rules:
         from: { key_code: k, modifiers: { mandatory: [ left_command, right_command,right_control,right_shift,right_option ] } }
         to: [ { key_code: up_arrow , modifiers: [ left_shift ] } ]
 
-      # shift: tab/win management
-      - description: 'shift + k = command + tab (prev application)'
-        type: basic
-        from: { key_code: k, modifiers: { mandatory: [ left_shift ,right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: tab , modifiers: [ left_command, left_shift ] } ]
-
       # option: option + cursor up
       - description: 'option + k = option + up'
         type: basic
@@ -182,12 +123,6 @@ rules:
         from: { key_code: l, modifiers: { mandatory: [ left_command, right_command,right_control,right_shift,right_option ] } }
         to: [ { key_code: right_arrow , modifiers: [ left_shift ] } ]
 
-      # shift: tab/win management
-      - description: 'shift + l = command + tab (next tab)'
-        type: basic
-        from: { key_code: l, modifiers: { mandatory: [ left_shift ,right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: tab , modifiers: [ left_control ] } ]
-
 
       #==========================================================#
       # ( u ) + ( ⌘⌥⇧⌃ )  -> ( PageUp )                          #
@@ -198,11 +133,11 @@ rules:
         from: { key_code: u, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
         to: [ { key_code: page_up } ]
 
-      # control: desktop management
-      - description: 'control + u = ctrl + command + f (fullscreen)'
+      # command: selection
+      - description: 'command + u = shift + page_up'
         type: basic
-        from: { key_code: u, modifiers: { mandatory: [ left_control ,right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: f , modifiers: [ left_control,left_command ] } ]
+        from: { key_code: u, modifiers: { mandatory: [ left_command, right_command,right_control,right_shift,right_option ] } }
+        to: [ { key_code: page_up , modifiers: [ left_shift ] } ]
 
       #==========================================================#
       # ( i ) + ( ⌘⌥⇧⌃ )  -> ( Home )                          #
@@ -366,16 +301,6 @@ rules:
         from: { key_code: q, modifiers: { mandatory: [ left_command,  right_command,right_control,right_shift,right_option ] } }
         to: [ { key_code: q , modifiers: [ left_command ] } ]
 
-
-      #==========================================================#
-      # ( a ) --> window management                              #
-      #==========================================================#
-
-      - description: 'command + a = expose all'
-        type: basic
-        from: { key_code: a, modifiers: { mandatory: [ left_command,  right_command,right_control,right_shift,right_option ] } }
-        to: [ { key_code: up_arrow , modifiers: [ left_control ] } ]
-
       #==========================================================#
       # ( s ) --> switch tab/win                                 #
       #==========================================================#
@@ -458,14 +383,6 @@ rules:
         to: [ { shell_command: open -a 'Notion' } ]
 
       #==========================================================#
-      # ( s ) --> System Preferences                                       #
-      #==========================================================#
-      - description: 'command + s = System Preferences'
-        type: basic
-        from: { key_code: s, modifiers: { mandatory: [ left_command, right_command,right_control,right_shift,right_option ] } }
-        to: [ { shell_command: open -a 'System Preferences' } ]
-
-      #==========================================================#
       # ( f ) --> Finder / Dash                                  #
       #==========================================================#
       - description: 'command + f = Dash'
@@ -477,14 +394,6 @@ rules:
         type: basic
         from: { key_code: f, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
         to: [ { shell_command: open -a finder } ]
-
-      #==========================================================#
-      # ( g ) --> chrome                        #
-      #==========================================================#
-      - description: 'command + g = Chrome'
-        type: basic
-        from: { key_code: g, modifiers: { mandatory: [ left_command, right_command,right_control,right_shift,right_option ] } }
-        to: [ { shell_command: open -a 'Google Chrome' } ]
 
 
   ################################################################
@@ -505,6 +414,14 @@ rules:
         type: basic
         from: { key_code: d, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
         to: [ { key_code: d , modifiers: [ left_control ] } ]
+
+      #==========================================================#
+      # ( g ) --> command + . for Code Actions                      #
+      #==========================================================#
+      - description: 'g = Command + .'
+        type: basic
+        from: { key_code: g, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
+        to: [ { key_code: period, modifiers: [ left_command ] } ]
 
       #==========================================================#
       # ( z ) -->  Ctrl-Z (SIGTSTP)  |  F5 (VS Code Debug)       #
@@ -545,7 +462,47 @@ rules:
         from: { key_code: c, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
         to: [ { key_code: c , modifiers: [ left_control ] } ]
 
-      
+      #==========================================================#
+      # Cursor move by word                                      #
+      #==========================================================#
+      # normal: cursor move left by word
+      - description: ' v = option + left'
+        conditions: [ {"bundle_identifiers": ["^com.googlecode.iterm2"],"type": "frontmost_application_unless"}]
+        type: basic
+        from: { key_code: v, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
+        to: [ { key_code: left_arrow , modifiers: [ left_option ] } ]
+
+      - description: ' v = option + b'
+        conditions: [ {"bundle_identifiers": ["^com.googlecode.iterm2"],"type": "frontmost_application_if"}]
+        type: basic
+        from: { key_code: v, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
+        to: [ { key_code: b , modifiers: [ left_option ] } ]
+
+      # command: selection left by word
+      - description: ' command + v = shift + option + left'
+        type: basic
+        from: { key_code: v, modifiers: { mandatory: [ left_command,right_command,right_control,right_shift,right_option ] } }
+        to: [ { key_code: left_arrow , modifiers: [ left_shift,left_option ] } ]
+
+      # normal: cursor move right by word
+      - description: ' b = option + right'
+        conditions: [ {"bundle_identifiers": ["^com.googlecode.iterm2"],"type": "frontmost_application_unless"}]
+        type: basic
+        from: { key_code: b, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
+        to: [ { key_code: right_arrow , modifiers: [ left_option ] } ]
+
+      - description: ' b = option + f'
+        conditions: [ {"bundle_identifiers": ["^com.googlecode.iterm2"],"type": "frontmost_application_if"}]
+        type: basic
+        from: { key_code: b, modifiers: { mandatory: [ right_command,right_control,right_shift,right_option ] } }
+        to: [ { key_code: f , modifiers: [ left_option ] } ]
+
+      # command: selection right by word
+      - description: ' command + b = shift + option + right'
+        type: basic
+        from: { key_code: b, modifiers: { mandatory: [ left_command,right_command,right_control,right_shift,right_option ] } }
+        to: [ { key_code: right_arrow , modifiers: [ left_shift,left_option ] } ]
+
       #==========================================================#
       # slash/backslash to comment
       #==========================================================#
