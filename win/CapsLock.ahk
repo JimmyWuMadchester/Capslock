@@ -28,6 +28,59 @@
 ;|Use it whatever and wherever you like. Hope it help                 |
 ;=====================================================================o
 
+;=====================================================================o
+;                       Clipboard Functions                          ;|
+;---------------------------------------------------------------------o
+Copy(clipboardID)
+{
+	global ; All variables are global by default
+	local oldClipboard := ClipboardAll ; Save the (real) clipboard
+	
+	Clipboard = ; Erase the clipboard first, or else ClipWait does nothing
+	Send ^c
+	ClipWait, 2, 1 ; Wait 1s until the clipboard contains any kind of data
+	if ErrorLevel 
+	{
+		Clipboard := oldClipboard ; Restore old (real) clipboard
+		return
+	}
+	
+	ClipboardData%clipboardID% := ClipboardAll
+	
+	Clipboard := oldClipboard ; Restore old (real) clipboard
+}
+
+Cut(clipboardID)
+{
+	global ; All variables are global by default
+	local oldClipboard := ClipboardAll ; Save the (real) clipboard
+	
+	Clipboard = ; Erase the clipboard first, or else ClipWait does nothing
+	Send ^x
+	ClipWait, 2, 1 ; Wait 1s until the clipboard contains any kind of data
+	if ErrorLevel 
+	{
+		Clipboard := oldClipboard ; Restore old (real) clipboard
+		return
+	}
+	ClipboardData%clipboardID% := ClipboardAll
+	
+	Clipboard := oldClipboard ; Restore old (real) clipboard
+}
+
+Paste(clipboardID)
+{
+	global
+	local oldClipboard := ClipboardAll ; Save the (real) clipboard
+
+	Clipboard := ClipboardData%clipboardID%
+	Send ^v
+
+	Clipboard := oldClipboard ; Restore old (real) clipboard
+	oldClipboard = 
+}
+;---------------------------------------------------------------------o
+
 
 ;=====================================================================o
 ;                       CapsLock Initializer                         ;|
@@ -229,7 +282,7 @@ return
 
 
 ;=====================================================================o
-;                        CapsLock Self Defined Area                  ;|
+;                        Hyper App Launcher                  ;|
 ;-----------------------------------o---------------------------------o
 ;                     CapsLock + f  |  Ctrl + Space(Search via PowerToy);|
 ;                     CapsLock + e  |  Open Search Engine            ;|
@@ -283,12 +336,37 @@ if GetKeyState("control") = 1
     Send, +^{Left}
 else Send, ^{Left} 
 return
+
 CapsLock & b::
 if GetKeyState("control") = 1                                        
     Send, +^{Right}
 else Send, ^{Right} 
 return
 
+;-----------------------------------o---------------------------------o
+;                     CapsLock + 1  |  Clipboard 1      ;|
+;                     CapsLock + 2  |  Clipboard 2     ;|
+;                     CapsLock + 3  |  Clipboard 3     ;|
+;-----------------------------------o---------------------------------o
+CapsLock & 1::
+if GetKeyState("control") = 1                                        
+    Copy(1)
+else Paste(1) 
+return
+
+CapsLock & 2::
+if GetKeyState("control") = 1                                        
+    Copy(2)
+else Paste(2) 
+return
+
+CapsLock & 3::
+if GetKeyState("control") = 1                                        
+    Copy(3)
+else Paste(3) 
+return
+
+;-----------------------------------o---------------------------------o
 
 CapsLock & d:: Send, ^d                                              ;|
 CapsLock & z:: Send, ^z                                              ;|
@@ -318,9 +396,6 @@ Send, ^e                                                             ;|
 Send, u                                                              ;|
 return                                                               ;|
 ;-----------------------------------o                                ;|
-CapsLock & 1:: Send,^{F5}                                            ;|
-CapsLock & 2:: Send,{F5}                                             ;|
-CapsLock & 3:: Send,{F10}                                            ;|
 CapsLock & 4:: Send,{F11}                                            ;|
 CapsLock & 5:: Send,+{F5}                                            ;|
 ;-----------------------------------o                                ;|
