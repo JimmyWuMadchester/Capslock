@@ -33,66 +33,61 @@
 ;---------------------------------------------------------------------o
 Copy(clipboardID)
 {
-	global ; All variables are global by default
-	local oldClipboard := ClipboardAll ; Save the (real) clipboard
-	
-	Clipboard = ; Erase the clipboard first, or else ClipWait does nothing
-	Send ^c
-	ClipWait, 2, 1 ; Wait 1s until the clipboard contains any kind of data
-	if ErrorLevel 
-	{
-		Clipboard := oldClipboard ; Restore old (real) clipboard
-		return
-	}
-	
-	ClipboardData%clipboardID% := ClipboardAll
-	
-	Clipboard := oldClipboard ; Restore old (real) clipboard
+    global ; All variables are global by default
+    local oldClipboard := ClipboardAll ; Save the (real) clipboard
+    
+    Clipboard = ; Erase the clipboard first, or else ClipWait does nothing
+    Send ^c
+    ClipWait, 2, 1 ; Wait 1s until the clipboard contains any kind of data
+    if ErrorLevel 
+    {
+        Clipboard := oldClipboard ; Restore old (real) clipboard
+        return
+    }
+    
+    ClipboardData%clipboardID% := ClipboardAll
+    
+    Clipboard := oldClipboard ; Restore old (real) clipboard
 }
 
 Cut(clipboardID)
 {
-	global ; All variables are global by default
-	local oldClipboard := ClipboardAll ; Save the (real) clipboard
-	
-	Clipboard = ; Erase the clipboard first, or else ClipWait does nothing
-	Send ^x
-	ClipWait, 2, 1 ; Wait 1s until the clipboard contains any kind of data
-	if ErrorLevel 
-	{
-		Clipboard := oldClipboard ; Restore old (real) clipboard
-		return
-	}
-	ClipboardData%clipboardID% := ClipboardAll
-	
-	Clipboard := oldClipboard ; Restore old (real) clipboard
+    global ; All variables are global by default
+    local oldClipboard := ClipboardAll ; Save the (real) clipboard
+    
+    Clipboard = ; Erase the clipboard first, or else ClipWait does nothing
+    Send ^x
+    ClipWait, 2, 1 ; Wait 1s until the clipboard contains any kind of data
+    if ErrorLevel 
+    {
+        Clipboard := oldClipboard ; Restore old (real) clipboard
+        return
+    }
+    ClipboardData%clipboardID% := ClipboardAll
+    
+    Clipboard := oldClipboard ; Restore old (real) clipboard
 }
 
 Paste(clipboardID)
 {
-	global
-	local oldClipboard := ClipboardAll ; Save the (real) clipboard
+    global
+    local oldClipboard := ClipboardAll ; Save the (real) clipboard
 
-	Clipboard := ClipboardData%clipboardID%
-	Send ^v
+    Clipboard := ClipboardData%clipboardID%
+    Send ^v
 
-	Clipboard := oldClipboard ; Restore old (real) clipboard
-	oldClipboard = 
+    Clipboard := oldClipboard ; Restore old (real) clipboard
+    oldClipboard = 
 }
 ;---------------------------------------------------------------------o
 
 
 ;=====================================================================o
-;                       CapsLock Initializer                         ;|
+;                     Hyper CapsLock Initializer                     ;|
 ;---------------------------------------------------------------------o
 SetCapsLockState, AlwaysOff                                          ;|
 ;---------------------------------------------------------------------o
-
-
-;=====================================================================o
-;                       CapsLock Switcher:                           ;|
-;---------------------------------o-----------------------------------o
-;                    CapsLock + Esc | {CapsLock}                       ;|
+;                  CapsLock + Esc | {CapsLock}                       ;|
 ;---------------------------------o-----------------------------------o
 CapsLock & Esc::                                                     ;|
 GetKeyState, CapsLockState, CapsLock, T                              ;|
@@ -103,11 +98,6 @@ else                                                                 ;|
 KeyWait, ``                                                          ;|
 return                                                               ;|
 ;---------------------------------------------------------------------o
-
-
-;=====================================================================o
-;                         CapsLock Escaper:                          ;|
-;----------------------------------o----------------------------------o
 ;                        CapsLock  |  {ESC}                          ;|
 ;----------------------------------o----------------------------------o
 CapsLock::Send, {ESC}                                                ;|
@@ -115,21 +105,50 @@ CapsLock::Send, {ESC}                                                ;|
 
 
 ;=====================================================================o
-;                    CapsLock Direction Navigator                    ;|
+;                       Hyper Language Switch                        ;|
+;---------------------------------o-----------------------------------o
+;                    CapsLock + 4 | Win + Space                      ;|
+;             CapsLock + Ctrl + 4 | £                                ;|
+;---------------------------------o-----------------------------------o
+CapsLock & 4::
+if GetKeyState("control") = 1    
+    Send, {U+00A3}
+else Send, #{Space} 
+return
+;---------------------------------------------------------------------o
+
+
+;=====================================================================o
+;                             Hyper Space                            ;|
+;---------------------------------o-----------------------------------o
+;                CapsLock + Space | Language Switch                  ;|
+;         CapsLock + Ctrl + Space | Emoji                            ;|
+;---------------------------------o-----------------------------------o
+CapsLock & Space::
+if GetKeyState("control") = 1    
+    Send, #.
+else Send, #{Space} 
+return
+;---------------------------------------------------------------------o
+
+
+;=====================================================================o
+;                            Hyper Navigator                         ;|
 ;-----------------------------------o---------------------------------o
 ;                      CapsLock + h |  Left                          ;|
+;               CapsLock + Ctrl + h |  Shift + Left (Select)         ;|
 ;                      CapsLock + j |  Down                          ;|
+;               CapsLock + Ctrl + j |  Shift + Down (Select)         ;|
+;                CapsLock + Alt + j |  Alt + Down                    ;|
 ;                      CapsLock + k |  Up                            ;|
+;               CapsLock + Ctrl + k |  Shift + Up (Select)           ;|
+;                CapsLock + Alt + k |  Alt + Up                      ;|
 ;                      CapsLock + l |  Right                         ;|
-;                      +Ctrl        |  Selection                   ;|
-;                      +Shift       |  Switch tabs                  ;|
-;                      +Alt Compatible                   ;|
+;               CapsLock + Ctrl + l |  Shift + Right (Select)        ;|
 ;-----------------------------------o---------------------------------o
 CapsLock & h::                                                       
 if GetKeyState("control") = 1                                        
     Send, +{Left}
-else if GetKeyState("shift") = 1                                        
-    Send, ^+{Tab}
 else Send, {Left} 
 return
 ;-----------------------------------o                                
@@ -153,19 +172,14 @@ return
 CapsLock & l::                                                       
 if GetKeyState("control") = 1                                        
     Send, +{Right}
-else if GetKeyState("shift") = 1                                        
-    Send, ^{Tab}
 else Send, {Right} 
 return
 ;---------------------------------------------------------------------o
-
-
-;=====================================================================o
-;                     CapsLock Home/End Navigator                    ;|
-;-----------------------------------o---------------------------------o
 ;                      CapsLock + i |  Home                          ;|
+;               CapsLock + Ctrl + i |  Shift + Home (Select)         ;|
 ;                      CapsLock + o |  End                           ;|
-;                      +Ctrl for Selection                          ;|
+;               CapsLock + Ctrl + o |  Shift + End (Select)         ;|
+;                      +Ctrl for Selection                           ;|
 ;-----------------------------------o---------------------------------o
 CapsLock & i::
 if GetKeyState("control") = 1                                        
@@ -179,14 +193,10 @@ if GetKeyState("control") = 1
 else Send, {End} 
 return
 ;---------------------------------------------------------------------o
-
-
-;=====================================================================o
-;                      CapsLock Page Navigator                       ;|
-;-----------------------------------o---------------------------------o
 ;                      CapsLock + u |  PageUp                        ;|
+;               CapsLock + Ctrl + u |  Shift + PageUp (Select)       ;|
 ;                      CapsLock + p |  PageDown                      ;|
-;                      Ctrl, Alt Compatible                          ;|
+;               CapsLock + Ctrl + p |  Shift + PageDown (Select)     ;|
 ;-----------------------------------o---------------------------------o
 CapsLock & u::                                                       ;|
 if GetKeyState("control") = 1                                        
@@ -200,62 +210,69 @@ if GetKeyState("control") = 1
 else Send, {PgDn} 
 return
 ;---------------------------------------------------------------------o
+;                     CapsLock + v  |  move cursor left by word      ;|
+;                     CapsLock + b  |  move cursor right by word     ;|
+;-----------------------------------o---------------------------------o
+CapsLock & v::
+if GetKeyState("control") = 1                                        
+    Send, +^{Left}
+else Send, ^{Left} 
+return
+; ----------------------------------o                               ;|
+CapsLock & b::
+if GetKeyState("control") = 1                                        
+    Send, +^{Right}
+else Send, ^{Right} 
+return
+;---------------------------------------------------------------------o
 
 
 ;=====================================================================o
-;                           CapsLock Deletor                         ;|
+;                              Hyper Deletion                        ;|
 ;-----------------------------------o---------------------------------o
-;                     CapsLock + n  |  Ctrl + Delete (Delete a Word) ;|
-;                     CapsLock + m  |  Delete                        ;|
-;                     CapsLock + ,  |  BackSpace                     ;|
-;                     CapsLock + .  |  Ctrl + BackSpace              ;|
+;                     CapsLock + n  |  BackSpace                     ;|
+;              CapsLock + Ctrl + n  |  Ctrl + BackSpace              ;|
+;                     CapsLock + m  |  BackSpace                     ;|
+;              CapsLock + Ctrl + m  |  Ctrl + BackSpace              ;|
+;                     CapsLock + ,  |  Delete                        ;|
+;              CapsLock + Ctrl + ,  |  Ctrl + Delete (Delete a Word) ;|
+;                     CapsLock + .  |  Delete                        ;|
+;              CapsLock + Ctrl + .  |  Ctrl + Delete (Delete a Word) ;|
 ;-----------------------------------o---------------------------------o
-CapsLock & ,::
-if GetKeyState("control") = 1                                        
-    Send, ^{Del}
-else Send, {Del} 
-return
-CapsLock & .::
-if GetKeyState("control") = 1                                        
-    Send, ^{Del}
-else Send, {Del} 
-return
-CapsLock & m::
-if GetKeyState("control") = 1                                        
-    Send, ^{BS}
-else Send, {BS}
-return
 CapsLock & n::
 if GetKeyState("control") = 1                                        
     Send, ^{BS}
 else Send, {BS} 
 return
+;-----------------------------------o                                ;|
+CapsLock & m::
+if GetKeyState("control") = 1                                        
+    Send, ^{BS}
+else Send, {BS}
+return
+;-----------------------------------o                                ;|
+CapsLock & ,::
+if GetKeyState("control") = 1                                        
+    Send, ^{Del}
+else Send, {Del} 
+return
+;-----------------------------------o                                ;|
+CapsLock & .::
+if GetKeyState("control") = 1                                        
+    Send, ^{Del}
+else Send, {Del} 
+return
 ;---------------------------------------------------------------------o
 
 
-;=====================================================================o
-;                       CapsLock Media Controller                    ;|
-;-----------------------------------o---------------------------------o
-;                    CapsLock + F1  |  Volume_Mute                   ;|
-;                    CapsLock + F2  |  Volume_Down                   ;|
-;                    CapsLock + F3  |  Volume_Up                     ;|
-;                    CapsLock + F3  |  Media_Play_Pause              ;|
-;                    CapsLock + F5  |  Media_Next                    ;|
-;                    CapsLock + F6  |  Media_Stop                    ;|
-;-----------------------------------o---------------------------------o
-CapsLock & F1:: Send, {Volume_Mute}                                  ;|
-CapsLock & F2:: Send, {Volume_Down}                                  ;|
-CapsLock & F3:: Send, {Volume_Up}                                    ;|
-CapsLock & F4:: Send, {Media_Play_Pause}                             ;|
-CapsLock & F5:: Send, {Media_Next}                                   ;|
-CapsLock & F6:: Send, {Media_Stop}                                   ;|
-;---------------------------------------------------------------------o
+
 
 
 ;=====================================================================o
-;                      CapsLock Window Controller                    ;|  
+;                        Hyper Window Controller                     ;|  
 ;-----------------------------------o---------------------------------o
 ;                     CapsLock + s  |  Ctrl + Tab (Swith Tab)        ;|
+;              CapsLock + Ctrl + s  |  Ctrl + Shift + Tab (Swith Tab);|
 ;                   CapsLock + w/q  |  Ctrl + W   (Close Tab)        ;|
 ;            Ctrl + CapsLock + w/q  |  Ctrl + Tab (Close App)        ;|
 ;                   CapsLock + tab  |  Alt + Tab  (Swith App)        ;|
@@ -282,126 +299,164 @@ return
 
 
 ;=====================================================================o
-;                        Hyper App Launcher                  ;|
-;-----------------------------------o---------------------------------o
-;                     CapsLock + f  |  Ctrl + Space(Search via PowerToy);|
-;                     CapsLock + e  |  Open Search Engine            ;|
-;                     CapsLock + r  |  Open IDE                    ;|
-;                     CapsLock + t  |  Open Terminal              ;|
-;-----------------------------------o---------------------------------o
+;                            Hyper App Launcher                      ;|
+;-----------------------------o---------------------------------------o
+;               CapsLock + f  |  Ctrl + Space (Search via PowerToy)  ;|
+;               CapsLock + e  |  Open Search Engine in Browser       ;|
+;        CapsLock + Ctrl + e  |  Open Explorer                       ;|
+;               CapsLock + r  |  Open VS Code                        ;|
+;        CapsLock + Ctrl + r  |  Open Rider                          ;|
+;               CapsLock + t  |  Open Terminal                       ;|
+;               CapsLock + y  |  Open ?                              ;|
+;-----------------------------o---------------------------------------o
 CapsLock & f:: Send, ^{Space}
-
+;-----------------------------o                                ;|
 CapsLock & e::
 if GetKeyState("control") = 1                      
     Run explorer
 else Run https://www.google.co.uk/ 
 return
-
+;-----------------------------o                                ;|
 CapsLock & r::
 if GetKeyState("control") = 1                                        
     Run C:\tools\Rider\rider64.lnk
 else Run C:\tools\VS Code\Code.lnk 
 return
-
+;-----------------------------o                                ;|
 CapsLock & t:: Run wt
 ;---------------------------------------------------------------------o
 
 
 ;=====================================================================o
-;                        Hyper IDE                       ;|
+;                           Hyper Clipboard                          ;|
 ;-----------------------------------o---------------------------------o
-;                     CapsLock + ;  |  Enter (Cancel)                ;|
-;                     CapsLock + '  |  =                             ;|
-;                     CapsLock + [  |  Back         (Visual Studio)  ;|
-;                     CapsLock + ]  |  Goto Define  (Visual Studio)  ;|
-;                     CapsLock + /  |  Comment      (Visual Studio)  ;|
-;                     CapsLock + \  |  Uncomment    (Visual Studio)  ;|
-;                     CapsLock + 1  |  Build and Run(Visual Studio)  ;|
-;                     CapsLock + 2  |  Debuging     (Visual Studio)  ;|
-;                     CapsLock + 3  |  Step Over    (Visual Studio)  ;|
-;                     CapsLock + 4  |  Step In      (Visual Studio)  ;|
-;                     CapsLock + 5  |  Stop Debuging(Visual Studio)  ;|
-;                     CapsLock + 6  |  Shift + 6     ^               ;|
-;                     CapsLock + 7  |  Shift + 7     &               ;|
-;                     CapsLock + 8  |  Shift + 8     *               ;|
-;                     CapsLock + 9  |  Shift + 9     (               ;|
-;                     CapsLock + 0  |  Shift + 0     )               ;|
-
-;-----------------------------------o---------------------------------o
-;                     CapsLock + v  |  move cursor left by word      ;|
-;                     CapsLock + b  |  move cursor right by word     ;|
-;-----------------------------------o---------------------------------o
-CapsLock & v::
-if GetKeyState("control") = 1                                        
-    Send, +^{Left}
-else Send, ^{Left} 
-return
-
-CapsLock & b::
-if GetKeyState("control") = 1                                        
-    Send, +^{Right}
-else Send, ^{Right} 
-return
-
-;-----------------------------------o---------------------------------o
-;                     CapsLock + 1  |  Clipboard 1      ;|
-;                     CapsLock + 2  |  Clipboard 2     ;|
-;                     CapsLock + 3  |  Clipboard 3     ;|
+;                     CapsLock + 1  |  Clipboard 1                   ;|
+;                     CapsLock + 2  |  Clipboard 2                   ;|
+;                     CapsLock + 3  |  Clipboard 3                   ;|
 ;-----------------------------------o---------------------------------o
 CapsLock & 1::
 if GetKeyState("control") = 1                                        
     Copy(1)
 else Paste(1) 
 return
-
+; ----------------------------------o                               ;|
 CapsLock & 2::
 if GetKeyState("control") = 1                                        
     Copy(2)
 else Paste(2) 
 return
-
+; ----------------------------------o                               ;|
 CapsLock & 3::
 if GetKeyState("control") = 1                                        
     Copy(3)
 else Paste(3) 
 return
-
 ;-----------------------------------o---------------------------------o
 
-CapsLock & d:: Send, ^d                                              ;|
-CapsLock & z:: Send, ^z                                              ;|
-CapsLock & c:: Send, ^c                                              ;|
 
+;=====================================================================o
+;                              Hyper IDE                             ;|
+;-----------------------------------o---------------------------------o
+;                     CapsLock + /  |  Toggle Comment                ;|
+;                     CapsLock + \  |  Toggle Comment                ;|
+;-----------------------------------o---------------------------------o
+CapsLock & /::                                                       ;|
+Send, ^/                                                             ;|
+return                                                               ;|
+;-----------------------------------o                                ;|
+CapsLock & \::                                                       ;|
+Send, ^/                                                             ;|
+return                                                               ;|
+;-----------------------------------o---------------------------------o
+;                     CapsLock + d  |  Ctrl + D (EOF)                ;|
+;              CapsLock + Ctrl + d  |  Ctrl + Shift + K (Delete Line);|
+;                     CapsLock + z  |  Ctrl + Z (SIGTSTP)            ;|
+;              CapsLock + Ctrl + z  |  F5 (Start/Continue Debug)     ;|
+;                     CapsLock + x  |  F1 (Command Palette)          ;|
+;              CapsLock + Ctrl + x  |  Ctrl + F5 (Run)               ;|
+;                     CapsLock + c  |  Ctrl + C (SIGINT)             ;|
+;              CapsLock + Ctrl + c  |  Shift + F5 (STOP)             ;|
+;-----------------------------------o---------------------------------o
+CapsLock & d::
+if GetKeyState("control") = 1                                        
+    Send, ^+k
+else Send, ^d
+return
+;-----------------------------------o
+CapsLock & z:: 
+if GetKeyState("control") = 1                                        
+    Send, {F5}
+else Send, ^z
+return
+;-----------------------------------o
+CapsLock & x:: 
+if GetKeyState("control") = 1                                        
+    Send, ^{F5}
+else Send, {F1}
+return
+;-----------------------------------o
+CapsLock & c::
+if GetKeyState("control") = 1                                        
+    Send, +{F5}
+else Send, ^c
+return
+;-----------------------------------o---------------------------------o
+;                     CapsLock + g  |  Ctrl + . (Code Actions)       ;|
+;              CapsLock + Ctrl + g  |  Menu Key                      ;|
+;-----------------------------------o---------------------------------o
 CapsLock & g::
 if GetKeyState("control") = 1                                        
     Send, {AppsKey}
 else Send, ^. 
 return
-
-
-
-
-CapsLock & `;:: Send, {Enter}                                        ;|
-CapsLock & ':: Send, =                                               ;|
-CapsLock & [:: Send, ^-                                              ;|
-CapsLock & ]:: Send, {F12}                                           ;|
-;-----------------------------------o                                ;|
-CapsLock & /::                                                       ;|
-Send, ^e                                                             ;|
-Send, c                                                              ;|
-return                                                               ;|
-;-----------------------------------o                                ;|
-CapsLock & \::                                                       ;|
-Send, ^e                                                             ;|
-Send, u                                                              ;|
-return                                                               ;|
-;-----------------------------------o                                ;|
-CapsLock & 4:: Send,{F11}                                            ;|
-CapsLock & 5:: Send,+{F5}                                            ;|
-;-----------------------------------o                                ;|
-CapsLock & 6:: Send,+6                                               ;|
-CapsLock & 7:: Send,+7                                               ;|
-CapsLock & 8:: Send,+8                                               ;|
-CapsLock & 9:: Send,+9                                               ;|
-CapsLock & 0:: Send,+0                                               ;|
+;-----------------------------------o---------------------------------o
+;                      CapsLock+ 0  |  F12 (Go to Definition)        ;|
+;                CapsLock+ Ctrl+ 0  |  Alt+ F12 (Peek Definition)    ;|
+;                      CapsLock+ -  |  Ctrl+Alt+ [ (Go Back)         ;|
+;                CapsLock+ Ctrl+ -  |  Ctrl+Alt+ - (Fold)            ;|
+;                      CapsLock+ =  |  Ctrl+Alt+ ] (Forward)         ;|
+;                CapsLock+ Ctrl+ =  |  Ctrl+Alt+ = (Expand)          ;|
+;-----------------------------------o---------------------------------o
+CapsLock & 0::
+if GetKeyState("control") = 1                                        
+    Send, !{F12}
+else Send, {F12} 
+return
+;-----------------------------------o
+CapsLock & -::
+if GetKeyState("control") = 1                                        
+    Send, ^!{[}
+else Send, ^!{-}
+return
+;-----------------------------------o
+CapsLock & =::
+if GetKeyState("control") = 1                                        
+    Send, ^!{]}
+else Send, ^!{=} 
+return
 ;---------------------------------------------------------------------o
+
+
+
+
+;=====================================================================o
+; More keys beyond ANSI 60 Follows
+;=====================================================================o
+
+    ;=====================================================================o
+    ;                       CapsLock Media Controller                    ;|
+    ;-----------------------------------o---------------------------------o
+    ;                    CapsLock + F1  |  Volume_Mute                   ;|
+    ;                    CapsLock + F2  |  Volume_Down                   ;|
+    ;                    CapsLock + F3  |  Volume_Up                     ;|
+    ;                    CapsLock + F3  |  Media_Play_Pause              ;|
+    ;                    CapsLock + F5  |  Media_Next                    ;|
+    ;                    CapsLock + F6  |  Media_Stop                    ;|
+    ;-----------------------------------o---------------------------------o
+    CapsLock & F1:: Send, {Volume_Mute}                                  ;|
+    CapsLock & F2:: Send, {Volume_Down}                                  ;|
+    CapsLock & F3:: Send, {Volume_Up}                                    ;|
+    CapsLock & F4:: Send, {Media_Play_Pause}                             ;|
+    CapsLock & F5:: Send, {Media_Next}                                   ;|
+    CapsLock & F6:: Send, {Media_Stop}                                   ;|
+    ;---------------------------------------------------------------------o
