@@ -1,5 +1,5 @@
 # CapsLock Enhancement
- This Script is wrote by Feng Ruohang via AutoHotKey Script. It Provieds an enhancement towards the "Useless Key" CapsLock, and turns CapsLock into an useful function Key just like Ctrl and Alt by combining CapsLock with almost all other keys in the keyboard.
+ This Script provieds an enhancement towards the "Useless Key" CapsLock, and turns CapsLock into an useful function Key just like Ctrl and Alt by combining CapsLock with almost all other keys in the keyboard.
 
 ## Summary
 
