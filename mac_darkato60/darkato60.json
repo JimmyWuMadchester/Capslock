@@ -113,7 +113,7 @@
       ]
     },
     {
-      "description": "Hyper + 4($) => Language Switch",
+      "description": "Language Switch and Currency Symbols",
       "manipulators": [
         {
           "description": "4 = Language Switch",
@@ -134,6 +134,70 @@
               "key_code": "spacebar",
               "modifiers": [
                 "left_control"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "command + 4 = £",
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "3",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "shift + 3 = #",
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "3",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "option + 3 = £",
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "mandatory": [
+                "left_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "3",
+              "modifiers": [
+                "left_shift"
               ]
             }
           ]
@@ -238,7 +302,7 @@
             "key_code": "j",
             "modifiers": {
               "mandatory": [
-                "left_shift",
+                "left_option",
                 "right_command",
                 "right_control",
                 "right_shift",
@@ -306,7 +370,7 @@
             "key_code": "k",
             "modifiers": {
               "mandatory": [
-                "left_shift",
+                "left_option",
                 "right_command",
                 "right_control",
                 "right_shift",
@@ -316,7 +380,7 @@
           },
           "to": [
             {
-              "key_code": "down_up",
+              "key_code": "up_arrow",
               "modifiers": [
                 "left_option"
               ]
@@ -540,6 +604,180 @@
           "to": [
             {
               "key_code": "page_down"
+            }
+          ]
+        },
+        {
+          "description": " v = option + left",
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com.googlecode.iterm2"
+              ],
+              "type": "frontmost_application_unless"
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ]
+        },
+        {
+          "description": " v = option + b",
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com.googlecode.iterm2"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "b",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ]
+        },
+        {
+          "description": " command + v = shift + option + left",
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "left_shift",
+                "left_option"
+              ]
+            }
+          ]
+        },
+        {
+          "description": " b = option + right",
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com.googlecode.iterm2"
+              ],
+              "type": "frontmost_application_unless"
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ]
+        },
+        {
+          "description": " b = option + f",
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com.googlecode.iterm2"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f",
+              "modifiers": [
+                "left_option"
+              ]
+            }
+          ]
+        },
+        {
+          "description": " command + b = shift + option + right",
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "left_shift",
+                "left_option"
+              ]
             }
           ]
         },
@@ -1215,13 +1453,33 @@
       ]
     },
     {
-      "description": "Hyper Terminal/IDE (d,zxc)",
+      "description": "Hyper Terminal/IDE (0-=,dg,zxc)",
       "manipulators": [
         {
-          "description": "command + d = Command+F12 (Rider)",
+          "description": "0 = F12",
           "type": "basic",
           "from": {
-            "key_code": "d",
+            "key_code": 0,
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f12"
+            }
+          ]
+        },
+        {
+          "description": "command + 0 = Alt + F12",
+          "type": "basic",
+          "from": {
+            "key_code": 0,
             "modifiers": {
               "mandatory": [
                 "left_command",
@@ -1236,6 +1494,104 @@
             {
               "key_code": "f12",
               "modifiers": [
+                "left_option"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "hyphen (-) = F12",
+          "type": "basic",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": [
+                "left_option",
+                "left_command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "command + hyphen (-) = Alt + F12",
+          "type": "basic",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": [
+                "left_option",
+                "left_command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "equal_sign (=) = F12",
+          "type": "basic",
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": [
+                "left_option",
+                "left_command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "command + equal_sign (=) = Alt + F12",
+          "type": "basic",
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign",
+              "modifiers": [
+                "left_option",
                 "left_command"
               ]
             }
@@ -1265,6 +1621,31 @@
           ]
         },
         {
+          "description": "command + d = Delete Line",
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "k",
+              "modifiers": [
+                "left_shift",
+                "left_command"
+              ]
+            }
+          ]
+        },
+        {
           "description": "g = Command + .",
           "type": "basic",
           "from": {
@@ -1280,31 +1661,10 @@
           },
           "to": [
             {
-              "key_code": ".",
+              "key_code": "period",
               "modifiers": [
                 "left_command"
               ]
-            }
-          ]
-        },
-        {
-          "description": "command + z = F5 (vscode debug)",
-          "type": "basic",
-          "from": {
-            "key_code": "z",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "f5"
             }
           ]
         },
@@ -1328,6 +1688,27 @@
               "modifiers": [
                 "left_control"
               ]
+            }
+          ]
+        },
+        {
+          "description": "command + z = F5 (vscode debug)",
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f5"
             }
           ]
         },
@@ -1356,7 +1737,7 @@
           ]
         },
         {
-          "description": "x = ctrl-r",
+          "description": "x = F1 (vscode Command Palette)",
           "type": "basic",
           "from": {
             "key_code": "x",
@@ -1371,34 +1752,7 @@
           },
           "to": [
             {
-              "key_code": "r",
-              "modifiers": [
-                "left_control"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "command + c = shift + F5 (vscode stop)",
-          "type": "basic",
-          "from": {
-            "key_code": "c",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "f5",
-              "modifiers": [
-                "left_shift"
-              ]
+              "key_code": "f1"
             }
           ]
         },
@@ -1426,72 +1780,10 @@
           ]
         },
         {
-          "description": " v = option + left",
-          "conditions": [
-            {
-              "bundle_identifiers": [
-                "^com.googlecode.iterm2"
-              ],
-              "type": "frontmost_application_unless"
-            }
-          ],
+          "description": "command + c = shift + F5 (vscode stop)",
           "type": "basic",
           "from": {
-            "key_code": "v",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "left_arrow",
-              "modifiers": [
-                "left_option"
-              ]
-            }
-          ]
-        },
-        {
-          "description": " v = option + b",
-          "conditions": [
-            {
-              "bundle_identifiers": [
-                "^com.googlecode.iterm2"
-              ],
-              "type": "frontmost_application_if"
-            }
-          ],
-          "type": "basic",
-          "from": {
-            "key_code": "v",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "b",
-              "modifiers": [
-                "left_option"
-              ]
-            }
-          ]
-        },
-        {
-          "description": " command + v = shift + option + left",
-          "type": "basic",
-          "from": {
-            "key_code": "v",
+            "key_code": "c",
             "modifiers": {
               "mandatory": [
                 "left_command",
@@ -1504,97 +1796,9 @@
           },
           "to": [
             {
-              "key_code": "left_arrow",
+              "key_code": "f5",
               "modifiers": [
-                "left_shift",
-                "left_option"
-              ]
-            }
-          ]
-        },
-        {
-          "description": " b = option + right",
-          "conditions": [
-            {
-              "bundle_identifiers": [
-                "^com.googlecode.iterm2"
-              ],
-              "type": "frontmost_application_unless"
-            }
-          ],
-          "type": "basic",
-          "from": {
-            "key_code": "b",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_arrow",
-              "modifiers": [
-                "left_option"
-              ]
-            }
-          ]
-        },
-        {
-          "description": " b = option + f",
-          "conditions": [
-            {
-              "bundle_identifiers": [
-                "^com.googlecode.iterm2"
-              ],
-              "type": "frontmost_application_if"
-            }
-          ],
-          "type": "basic",
-          "from": {
-            "key_code": "b",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "f",
-              "modifiers": [
-                "left_option"
-              ]
-            }
-          ]
-        },
-        {
-          "description": " command + b = shift + option + right",
-          "type": "basic",
-          "from": {
-            "key_code": "b",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_arrow",
-              "modifiers": [
-                "left_shift",
-                "left_option"
+                "left_shift"
               ]
             }
           ]
@@ -1641,97 +1845,6 @@
               "key_code": "slash",
               "modifiers": [
                 "left_command"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "semicolon = equal_sign",
-          "type": "basic",
-          "from": {
-            "key_code": "semicolon",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "equal_sign",
-              "modifiers": [
-                "left_shift"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "command + semicolon = !",
-          "type": "basic",
-          "from": {
-            "key_code": "semicolon",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "1",
-              "modifiers": [
-                "left_shift"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "quote = `",
-          "type": "basic",
-          "from": {
-            "key_code": "quote",
-            "modifiers": {
-              "mandatory": [
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "grave_accent_and_tilde"
-            }
-          ]
-        },
-        {
-          "description": "command + quote = ~",
-          "type": "basic",
-          "from": {
-            "key_code": "quote",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                "right_command",
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "grave_accent_and_tilde",
-              "modifiers": [
-                "left_shift"
               ]
             }
           ]
@@ -1941,6 +2054,74 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "description": "right_shift x2 = Mission Control",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "mission_control"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "right_shift pressed",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "right_shift pressed",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "right_shift"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "right_shift pressed",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "right_shift pressed",
+                  "value": 0
+                }
+              }
+            ]
+          }
         }
       ]
     }
