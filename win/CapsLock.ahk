@@ -1,31 +1,20 @@
 ;=====================================================================o
-;                   Feng Ruohang's AHK Script                         | 
-;                      CapsLock Enhancement                           |
+;              AHK Hyper CapsLock Enhancement Script                  | 
 ;---------------------------------------------------------------------o
-;Description:                                                         |
-;    This Script is wrote by Feng Ruohang via AutoHotKey Script. It   |
-; Provieds an enhancement towards the "Useless Key" CapsLock, and     |
-; turns CapsLock into an useful function Key just like Ctrl and Alt   |
-; by combining CapsLock with almost all other keys in the keyboard.   |
-;                                                                     |
 ;Summary:                                                             |
-;o----------------------o---------------------------------------------o
-;|CapsLock;             | {ESC}  Especially Convient for vim user     |
-;|CaspLock + `          | {CapsLock}CapsLock Switcher as a Substituent|
-;|CapsLock + hjklwb     | Vim-Style Cursor Mover                      |
-;|CaspLock + uiop       | Convient Home/End PageUp/PageDn             |
-;|CaspLock + nm,.       | Convient Delete Controller                  |
-;|CapsLock + zxcvay     | Windows-Style Editor                        |
-;|CapsLock + Direction  | Mouse Move                                  |
-;|CapsLock + Enter      | Mouse Click                                 |
-;|CaspLock + {F1}~{F6}  | Media Volume Controller                     |
-;|CapsLock + qs         | Windows & Tags Control                      |
-;|CapsLock + ;'[]       | Convient Key Mapping                        |
-;|CaspLock + dfert      | Frequently Used Programs (Self Defined)     |
-;|CaspLock + 123456     | Dev-Hotkey for Visual Studio (Self Defined) |
-;|CapsLock + 67890-=    | Shifter as Shift                            |
-;-----------------------o---------------------------------------------o
-;|Use it whatever and wherever you like. Hope it help                 |
+;o-----------------------------o--------------------------------------o
+;|CapsLock;                    | {ESC}                                |
+;|CaspLock + Esc               | CapsLock                             |
+;|CaspLock + 123               | Hyper Clipboards                     |
+;|CaspLock + 4                 | Language Switch / £                  |
+;|CapsLock + {tab}qws          | Windows & Tabs Control               |
+;|CapsLock + ert,af            | Hyper App Launcher                   |
+;|CapsLock + hjklvb            | Cursor Mover                         |
+;|CaspLock + uiop              | Home/End PageUp/PageDn               |
+;|CapsLock + 0-=,/\,dg,zxc     | Hyper Terminal / IDE                 |
+;|CaspLock + nm,.              | Backspace & Deletion                 |
+
+;|CaspLock + {F1}~{F6}         | Media Volume Controller              |
 ;=====================================================================o
 
 ;=====================================================================o
