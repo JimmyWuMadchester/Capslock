@@ -113,7 +113,7 @@
       ]
     },
     {
-      "description": "Language Switch and Currency Symbols",
+      "description": "Language Switch and Currency Symbols (34)",
       "manipulators": [
         {
           "description": "4 = Language Switch",
@@ -1223,7 +1223,7 @@
       ]
     },
     {
-      "description": "Hyper Application (erty,asfg)",
+      "description": "Hyper App Launcher (erty,asf)",
       "manipulators": [
         {
           "description": "e = Microsoft Edge",
@@ -2052,6 +2052,54 @@
               "modifiers": [
                 "left_shift"
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Hyper + ;' for ~` for ANSI 60",
+      "manipulators": [
+        {
+          "description": "semicolon = ~",
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "quote = `",
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde"
             }
           ]
         }
