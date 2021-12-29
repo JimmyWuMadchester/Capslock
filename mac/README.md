@@ -12,4 +12,4 @@ Mac keyboard layout is designed slightly different than normal ANSI/ISO layouts.
 
 Use **Karabiner-Elements**'s simple rule to change <kbd>Ctrl_R</kbd> to <kbd>Cmd_L</kbd> for the external ANSI keyboard only. All other complex rules defined in the JSON file can then be loaded for consistent Hyper features.
 
-![hyper-mac](/imgage/hyper-caps-lock-mac.png)
+![hyper-mac](/imgages/hyper-caps-lock-mac.png)
