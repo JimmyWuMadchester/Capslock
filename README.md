@@ -1,20 +1,18 @@
 # CapsLock
 
-> *Make CapsLock Great Again!*
->
-> [中文文档](docs/zh-cn/) | [EN DOCS](http://capslock.vonng.com/) | [Karabiner Gallery](https://ke-complex-modifications.pqrs.org/#caps_lock_enhancement) | [Github Repo](https://github.com/Vonng/Capslock) | [Import URL](karabiner://karabiner/assets/complex_modifications/import?url=https://raw.githubusercontent.com/Vonng/Capslock/master/mac_v3/capslock.json)
->
-> [![Visits Badge](https://badges.pufler.dev/visits/Vonng/Capslock)](https://badges.pufler.dev)
+> *Make CapsLock Great Again on MacOS and Windows!*
 
 ------------------------
 
-## CapsLock Enhancement Mac v3
+## CapsLock Enhancement Mac
 
 *Transform <kbd>⇪</kbd>CapsLock into a powerful **modifier** **<kbd>✱</kbd> Hyper** that miraculously increases your work productivity!*
 
-![control-plane-0](docs/img/keyboard.jpg)
+MacOS:
+![hyper-mac](docs/img/hyper-caps-lock-mac.jpg)
 
-> [Control Plane](#control-planes) 0 Layout (There are 15 more!)
+MacOS:
+![hyper-win](docs/img/hyper-caps-lock-win.jpg)
 
 ------------------------
 
