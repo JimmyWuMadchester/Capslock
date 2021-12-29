@@ -2,16 +2,16 @@
 
 > *Make CapsLock Great Again on MacOS and Windows!*
 
+*Transform <kbd>⇪</kbd>CapsLock into a powerful **modifier** **<kbd>✱</kbd> Hyper** that miraculously increases your work productivity!*
+
 ------------------------
 
 ## CapsLock Enhancement Mac
 
-*Transform <kbd>⇪</kbd>CapsLock into a powerful **modifier** **<kbd>✱</kbd> Hyper** that miraculously increases your work productivity!*
-
-MacOS:
 ![hyper-mac](docs/img/hyper-caps-lock-mac.png)
 
-MacOS:
+## CapsLock Enhancement Windows
+
 ![hyper-win](docs/img/hyper-caps-lock-win.png)
 
 ------------------------
