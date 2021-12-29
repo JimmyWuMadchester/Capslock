@@ -14,4 +14,4 @@ The additional <kbd>Ctrl_R</kbd> key gives a close <kbd>⌘</kbd> experience whe
 
 Only the top `Hyper+` layer are kept for the middle <kbd>T</kbd>, <kbd>G</kbd>, <kbd>V</kbd> and <kbd>B</kbd> keys because they are difficult to reach for the `Hyper+Ctrl+` layer.
 
-![](/images/hyper-caps-lock-win.png)
+![hyper-win](/images/hyper-caps-lock-win.png)
