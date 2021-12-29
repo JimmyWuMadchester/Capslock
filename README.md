@@ -1,16 +1,33 @@
-# CapsLock
+# Hyper CapsLock Unified
 
-> *Make CapsLock Great Again on MacOS and Windows!*
+> *Make CapsLock Consistently Great on MacOS and Windows!*
 
-*Transform <kbd>⇪</kbd>CapsLock into a powerful **modifier** **<kbd>✱</kbd> Hyper** that miraculously increases your work productivity!*
+I'm an user switching between my work PC and my personal Mac for different coding projects. My goal is to create configurations so I can have an almost identical experience when on MacOS and Windows, with or without my small external ANSI 60 keyboard.
+
+Extra features are introduced on the base of [Vonng/Capslock](https://github.com/Vonng/Capslock):
+
+* Consistent shortcut combinations between MacOS and Windows with different keyboard layouts.
+* Duplicated key combos for a greater redundancy, less typo and ease of use.
+* Removed hard to reach and less used key combinations for better ergonomics.
+* Remapped apps to keys accoding to their initials.
+* Remapped frequent IDE functions to keys with close semantic meanings, such as <kbd>-</kbd> and <kbd>+</kbd> for `Fold` and `Unfold`.
+* Remapped <kbd>#</kbd>, <kbd>£</kbd>, <kbd>`</kbd> and <kbd>~</kbd>, so they are typed in a consistent fashion across keyboard and OS.
 
 ------------------------
+
+## ANSI 60 Key and Keycap change
+
+![ansi-60](docs/img/ansi-60-remapped.png)
+
+My external keyboard has a small ANSI 60 keys layout that is different from both my Mac and Windows laptop's UK ISO keyboards. It's reprogrammed with firmware to have the left modifier keys (<kbd>Ctrl</kbd>/<kbd>Win</kbd>/<kbd>Alt</kbd>) swapped to (<kbd>Ctrl_L</kbd>/<kbd>Alt</kbd>/<kbd>Ctrl_R</kbd>) to allow the same finger positions for the same Hyper shortcuts defined in both MacOS and Windows.
 
 ## CapsLock Enhancement Mac
 
 ![hyper-mac](docs/img/hyper-caps-lock-mac.png)
 
 ## CapsLock Enhancement Windows
+
+
 
 ![hyper-win](docs/img/hyper-caps-lock-win.png)
 
