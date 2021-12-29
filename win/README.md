@@ -1,27 +1,17 @@
-# CapsLock Enhancement
- This Script provieds an enhancement towards the "Useless Key" CapsLock, and turns CapsLock into an useful function Key just like Ctrl and Alt by combining CapsLock with almost all other keys in the keyboard.
+# CapsLock Enhancement Windows
+
+## ANSI 60 Key and Keycap change
+
+![ansi-60](docs/img/ansi-60-remapped.png)
+
+My external keyboard has a small ANSI 60 keys layout that is different from both my Mac and Windows laptop's UK ISO keyboards. It's reprogrammed with firmware to have the left modifier keys (<kbd>Ctrl</kbd>/<kbd>Win</kbd>/<kbd>Alt</kbd>) swapped to (<kbd>Ctrl_L</kbd>/<kbd>Alt</kbd>/<kbd>Ctrl_R</kbd>) to allow the same finger positions for the same Hyper shortcuts defined in both MacOS and Windows.
+
+------------------------
+
+## Hyper CapsLock Windows
+
+The additional `Ctrl_R` key gives a close <kbd>⌘</kbd> experience when in Windows, While the original `Ctrl_L` key on the left makes Windows users feel at home by keeping Windows `Ctrl+` shortcuts unchanged.
+
+Only the top `Hyper+` layer are kept for the middle `T/G/V/B` keys because they are difficult to reach for the `Hyper+Ctrl+` layer.
 
 ![](/images/hyper-caps-lock-win.png)
-## Summary
-
-|  Key |  Function  |
-| ------------ | ------------ |
-|  CapsLock;             | {ESC}  Especially Convient for vim user      |
-|  CaspLock + `          | {CapsLock}CapsLock Switcher as a Substituent |
-|  CapsLock + hjklwb     | Vim-Style Cursor Mover                       |
-|  CaspLock + uiop       | Convient Home/End PageUp/PageDn              |
-|  CaspLock + nm,.       | Convient Delete Controller                   |
-|  CapsLock + zxcvay     | Windows-Style Editor                         |
-|  CapsLock + Direction  | Mouse Move                                   |
-|  CapsLock + Enter      | Mouse Click                                  |
-|  CaspLock + {F1}~{F6}  | Media Volume Controller                      |
-|  CapsLock + qs         | Windows & Tags Control                       |
-|  CapsLock + ;'[]       | Convient Key Mapping                         |
-|  CaspLock + dfert      | Frequently Used Programs (Self Defined)      |
-|  CaspLock + 123456     | Dev-Hotkey for Visual Studio (Self Defined)  |
-|  CapsLock + 67890-=    | Shifter as Shift                             |
-
-
-Use it whatever and wherever you like. Hope it help
-
-Do Whatever the fuck you want public license
