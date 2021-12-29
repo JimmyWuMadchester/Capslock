@@ -9,10 +9,10 @@
 *Transform <kbd>⇪</kbd>CapsLock into a powerful **modifier** **<kbd>✱</kbd> Hyper** that miraculously increases your work productivity!*
 
 MacOS:
-![hyper-mac](docs/img/hyper-caps-lock-mac.jpg)
+![hyper-mac](docs/img/hyper-caps-lock-mac.png)
 
 MacOS:
-![hyper-win](docs/img/hyper-caps-lock-win.jpg)
+![hyper-win](docs/img/hyper-caps-lock-win.png)
 
 ------------------------
 
