@@ -1,0 +1,87 @@
+{
+  "title": "Mouse Enhancement",
+  "version": "1.0.0",
+  "maintainers": [
+    "Darkato"
+  ],
+  "author": "Darkato(adamoweb@gmail.com)",
+  "rules": [
+    {
+      "description": "Mouse Button 4,5 => back / forward",
+      "manipulators": [
+        {
+          "description": "mouse_4 = Go back",
+          "type": "basic",
+          "from": {
+            "pointing_button": "button4"
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "command + mouse_4 = Fold",
+          "type": "basic",
+          "from": {
+            "pointing_button": "button4",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": [
+                "left_option",
+                "left_command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "mouse_5 = Go forward",
+          "type": "basic",
+          "from": {
+            "pointing_button": "button5"
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "command + mouse_5 = Unfold",
+          "type": "basic",
+          "from": {
+            "pointing_button": "button5",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign",
+              "modifiers": [
+                "left_option",
+                "left_command"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

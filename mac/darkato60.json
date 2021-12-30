@@ -63,7 +63,7 @@
           ]
         },
         {
-          "description": "spacebar = language switch",
+          "description": "spacebar = iTerm Hotkey Terminal",
           "type": "basic",
           "from": {
             "key_code": "spacebar",
@@ -78,7 +78,7 @@
           },
           "to": [
             {
-              "key_code": "spacebar",
+              "key_code": "slash",
               "modifiers": [
                 "left_control"
               ]
