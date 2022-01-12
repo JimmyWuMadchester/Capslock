@@ -1,37 +1,17 @@
 ## Hyper CapsLock Unified
 
-You can use the [editor on GitHub](https://github.com/darkato42/Capslock/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+> *Make CapsLock Consistently Great on MacOS and Windows!*
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+I'm an user switching between my work PC and my personal Mac for different coding projects. My goal is to create configurations so I can have almost identical experiences when on MacOS and Windows, with or without my small external ANSI 60 keyboard.
 
-### Markdown
+Based on [Vonng/Capslock](https://github.com/Vonng/Capslock), and some extra features are introduced:
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+* Consistent shortcut combinations between MacOS and Windows with different keyboard layouts.
+* Duplicated key combos for a greater redundancy, less typo and ease of use.
+* Removed hard to reach and less used key combinations for better ergonomics.
+* Remapped the app launch keys accoding to their initials.
+* Remapped frequent IDE functions to keys with close semantic meanings, such as <kbd>-</kbd> and <kbd>+</kbd> for `Fold` and `Unfold`.
+* Remapped <kbd>#</kbd>, <kbd>£</kbd>, <kbd>`</kbd> and <kbd>~</kbd>, so they are typed in consistent fashions across keyboard and OS.
+* Simplified to have only one extra modifier, the left <kbd>Cmd</kbd> key, when <kbd>Hyper</kbd> is used.
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/darkato42/Capslock/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+------------------------
