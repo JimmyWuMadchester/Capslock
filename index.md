@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Hyper CapsLock Unified
 
 You can use the [editor on GitHub](https://github.com/darkato42/Capslock/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
