@@ -1,4 +1,7 @@
-﻿;=====================================================================o
+RegWrite, REG_SZ, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\Shell\Associations\UrlAssociations\http\UserChoice, ProgId, MSEdgeHTM
+;RegWrite, REG_SZ, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\Shell\Associations\UrlAssociations\http\UserChoice, ProgId, ChromeHTML
+
+;=====================================================================o
 ;              AHK Hyper CapsLock Enhancement Script                  | 
 ;---------------------------------------------------------------------o
 ;Summary:                                                             |
