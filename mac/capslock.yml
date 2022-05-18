@@ -1260,6 +1260,22 @@ rules:
         to: [{ key_code: period, modifiers: [left_command] }]
 
       #==========================================================#
+      # ( h ) --> command + shift + h to add highlight in Notion #
+      #==========================================================#
+      - description: "h = Command + Shift + h"
+        type: basic
+        from:
+          {
+            key_code: h,
+            modifiers:
+              {
+                mandatory:
+                  [left_command],
+              },
+          }
+        to: [{ key_code: h, modifiers: [left_command, left_shift] }]
+
+      #==========================================================#
       # ( z ) -->  Ctrl-Z (SIGTSTP)  |  F5 (VS Code Debug)       #
       #==========================================================#
       - description: "z = ctrl-z"

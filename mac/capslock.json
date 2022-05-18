@@ -1669,6 +1669,27 @@
           ]
         },
         {
+          "description": "h = Command + Shift + h",
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "h",
+              "modifiers": [
+                "left_command",
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
           "description": "z = ctrl-z",
           "type": "basic",
           "from": {
