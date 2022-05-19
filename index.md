@@ -52,7 +52,7 @@ It only takes two steps to enable Capslock on your Mac: Download & Enable
 
    Following the wizard and grant required permissions (Settings - Security - Privacy)
 
-2. [Enable](karabiner://karabiner/assets/complex_modifications/import?url=https://ke-complex-modifications.pqrs.org/json/caps_lock_enhancement.json)
+2. Enable
 
    Open this [link](karabiner://karabiner/assets/complex_modifications/import?url=https://raw.githubusercontent.com/darkato42/Capslock/master/mac/capslock.json) with Safari. It will launch Karabiner-Elements and import the configuration.
 
@@ -60,4 +60,4 @@ It only takes two steps to enable Capslock on your Mac: Download & Enable
 
    Click `Enable All` on pop-up dialog. It will affect immediately.
 
-   You can now try moving cursor with ⇪ + h,j,k,l , And exploring more features below.
+   You can now try moving cursor with ⇪ + h,j,k,l.
