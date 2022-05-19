@@ -4,6 +4,10 @@
 
 I'm an user switching between my work PC and my personal Mac for different coding projects. My goal is to create configurations so I can have almost identical experiences when on MacOS and Windows, with or without my small external ANSI 60 keyboard.
 
+------------------------
+
+## Highlights
+
 Based on [Vonng/Capslock](https://github.com/Vonng/Capslock), and some extra features are introduced:
 
 * Consistent shortcut combinations between MacOS and Windows with different keyboard layouts.
@@ -44,23 +48,11 @@ Use **Karabiner-Elements**'s simple rule to change <kbd>Ctrl_R</kbd> to <kbd>Cmd
 
 ------------------------
 
-
-## Highlights (To be updated)
-
-* **Powerful**: Transform Capslock into a great modifier: **Hyper(<kbd>✱</kbd>)**. (such as <kbd>⇧</kbd><kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd>)
-* **Useful**: Navigation, mousekey, clipboard, win/term ctrl, shortcuts, etc... **Redefine the keyboard!**
-* **Speed-Up**: Optimized for developers, high-frequency move **stay in hot zone**.
-* **Extensible**: Work with existing modifiers, which introduce **16 extra control planes**.
-* **MouseKey**: Manipulate mouse cursor and wheels with keyboard
-* **Cross-Platform**: MacOS and Windows. Light-Weight and portable
-
-------------------------
-
-## Install (To be updated)
+## Installation
 
 It only takes two steps to enable Capslock on your Mac: Download & Enable
 
-1. [Download](https://github.com/pqrs-org/Karabiner-Elements/releases/download/v14.2.0/Karabiner-Elements-14.2.0.dmg)
+1. Download
 
    Download & Install [**Karabiner-Elements**](https://karabiner-elements.pqrs.org/).
 
@@ -68,16 +60,10 @@ It only takes two steps to enable Capslock on your Mac: Download & Enable
 
 2. [Enable](karabiner://karabiner/assets/complex_modifications/import?url=https://ke-complex-modifications.pqrs.org/json/caps_lock_enhancement.json)
 
-   Open this [link](karabiner://karabiner/assets/complex_modifications/import?url=https://raw.githubusercontent.com/Vonng/Capslock/master/mac_v3/capslock.json) with Safari. It will launch Karabiner-Elements and load configuration.
+   Open this [link](karabiner://karabiner/assets/complex_modifications/import?url=https://raw.githubusercontent.com/darkato42/Capslock/master/mac/capslock.json) with Safari. It will launch Karabiner-Elements and import the configuration.
 
-   `karabiner://karabiner/assets/complex_modifications/import?url=https://raw.githubusercontent.com/Vonng/Capslock/master/mac_v3/capslock.json`
+   `karabiner://karabiner/assets/complex_modifications/import?url=https://raw.githubusercontent.com/darkato42/Capslock/master/mac/capslock.json`
 
-   > #### Alternative Links
-   > * [Karabiner Gallery](karabiner://karabiner/assets/complex_modifications/import?url=https://ke-complex-modifications.pqrs.org/json/caps_lock_enhancement.json)：https://ke-complex-modifications.pqrs.org/json/caps_lock_enhancement.json
-   > * [GitHub Repo](karabiner://karabiner/assets/complex_modifications/import?url=https://raw.githubusercontent.com/Vonng/Capslock/master/mac_v3/capslock.json)： https://raw.githubusercontent.com/Vonng/Capslock/master/mac_v3/capslock.json
-   > * [Capslock Website](karabiner://karabiner/assets/complex_modifications/import?url=https://vonng.com/capslock.json)： https://vonng.com/capslock.json
-   > * Or download [**capslock.json**](mac_v3/capslock.json) to ` ~/.config/karabiner/assets/complex_modifications/` manually.
-
-   Click `Enable All` for `Capslock Enhancement` on pop-up dialog. It will affect immediately.
+   Click `Enable All` on pop-up dialog. It will affect immediately.
 
    You can now try moving cursor with ⇪ + h,j,k,l , And exploring more features below.
